@@ -5,6 +5,7 @@ use App\Http\Controllers\DosenController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\BelanjaController;
 
 
 Route::get('/', function () {
@@ -87,3 +88,8 @@ Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'edit'])->name('siswa.e
 Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
 Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
 
+//crud tabel keranjangbelanja
+Route::get('/belanja', [BelanjaController::class, 'index'])->name('belanja.index');
+Route::get('/belanja/beli', [BelanjaController::class, 'create'])->name('belanja.create');
+Route::post('/belanja/store', [BelanjaController::class, 'store'])->name('belanja.store');
+Route::delete('/belanja/{id}', [BelanjaController::class, 'destroy'])->name('belanja.destroy');
