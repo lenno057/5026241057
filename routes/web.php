@@ -6,6 +6,8 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\BelanjaController;
+use App\Http\Controllers\BedakController;
+use App\Http\Controllers\NilaiController;
 
 
 Route::get('/', function () {
@@ -93,3 +95,17 @@ Route::get('/belanja', [BelanjaController::class, 'index'])->name('belanja.index
 Route::get('/belanja/beli', [BelanjaController::class, 'create'])->name('belanja.create');
 Route::post('/belanja/store', [BelanjaController::class, 'store'])->name('belanja.store');
 Route::delete('/belanja/{id}', [BelanjaController::class, 'destroy'])->name('belanja.destroy');
+
+//crud tabel bedak
+Route::get('/bedak', [BedakController::class, 'index']);
+Route::get('/bedak/cari', [BedakController::class, 'cari']);
+Route::get('/bedak/tambah', [BedakController::class, 'tambah']);
+Route::post('/bedak/store', [BedakController::class, 'store']);
+Route::get('/bedak/edit/{id}', [BedakController::class, 'edit']);
+Route::post('/bedak/update', [BedakController::class, 'update']);
+Route::get('/bedak/hapus/{id}', [BedakController::class, 'hapus']);
+
+//crud tabel nilaikuliah
+Route::get('/nilai', [NilaiController::class, 'index'])->name('nilai.index');
+Route::get('/nilai/create', [NilaiController::class, 'create'])->name('nilai.create');
+Route::post('/nilai/store', [NilaiController::class, 'store'])->name('nilai.store');
