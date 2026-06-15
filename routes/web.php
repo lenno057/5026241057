@@ -8,6 +8,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\BelanjaController;
 use App\Http\Controllers\BedakController;
 use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\PesertaController;
 
 
 Route::get('/', function () {
@@ -109,3 +110,8 @@ Route::get('/bedak/hapus/{id}', [BedakController::class, 'hapus']);
 Route::get('/nilai', [NilaiController::class, 'index'])->name('nilai.index');
 Route::get('/nilai/create', [NilaiController::class, 'create'])->name('nilai.create');
 Route::post('/nilai/store', [NilaiController::class, 'store'])->name('nilai.store');
+
+//crud tabel nilai_peserta
+Route::get('/eas', [PesertaController::class, 'index'])->name('peserta.index');
+Route::get('/eas/create', [PesertaController::class, 'create'])->name('peserta.create');
+Route::post('/eas/store', [PesertaController::class, 'store'])->name('peserta.store');
